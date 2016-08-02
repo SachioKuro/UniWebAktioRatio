@@ -1,4 +1,7 @@
 <%= form_tag('user_stocks') do -%>
+    <p>
+        You can select more than one Stock at once by dragging or CTR+Click
+    </p>
     <%= select_tag "stock_selection",
         options_from_collection_for_select(@portfolio_stocks, "shortName", "shortName",
             params[:stock_selection]),
