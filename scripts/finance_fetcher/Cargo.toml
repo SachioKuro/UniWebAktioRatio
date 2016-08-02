@@ -1,0 +1,11 @@
+[package]
+name = "finance_fetcher"
+version = "0.1.0"
+authors = ["Sascha Bussian <shubosha.kuro@gmail.com>"]
+
+[dependencies]
+postgres = "*"
+hyper = "*"
+regex = "*"
+rustc-serialize = "*"
+lettre = "*"
