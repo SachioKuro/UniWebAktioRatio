@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(params.require(:user).permit(:username, :email, :password, :password_confirmation))
+        @user.notification = false
 
         if @user.save
             redirect_to @user
