@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         @user.notification = false
 
         if @user.save
-            redirect_to @user
+            redirect_to '/'
         else
             render 'new'
         end
