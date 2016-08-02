@@ -1,0 +1,30 @@
+<%= form_tag('user_stocks') do -%>
+    <%= select_tag "stock_selection",
+        options_from_collection_for_select(@portfolio_stocks, "shortName", "shortName",
+            params[:stock_selection]),
+        multiple: true,
+        :onchange => 'this.form.submit();' %>
+    <% @selected_stocks.each do |stockname| %>
+        <p>
+            <%= stockname %><br />
+            <%= line_chart get_values(stockname) %>
+        </p>
+        <p>
+            <div class="limits">
+                <div class="min_max">
+                    Min: <input type="text" name="<%= "limit_value[" << stockname << "][min]" %>" value="<% if @limit_values != nil && @limit_values[stockname] != nil %><%= @limit_values[stockname]["min"] if @limit_values != nil %><% end %>">
+                    akitv <input type="checkbox" name="<%= "limit[" << stockname << "][]" %>" value="min"
+                          <% if @limit_flags != nil && @limit_flags[stockname] != nil %><% if @limit_flags[stockname].include? "min" %><%= checked="checked" %><% end %><% end %>>
+                </div>
+                <div class="min_max">
+                    Max: <input type="text" name="<%= "limit_value[" << stockname << "][max]" %>" value="<% if @limit_values != nil && @limit_values[stockname] != nil %><%= @limit_values[stockname]["max"] if @limit_values != nil %><% end %>">
+                    akitv <input type="checkbox" name="<%= "limit[" << stockname << "][]" %>" value="max"
+                          <% if @limit_flags != nil && @limit_flags[stockname] != nil %><% if @limit_flags[stockname].include? "max" %><%= checked="checked" %><% end %><% end %>>
+                </div>
+            </div>
+        </p>
+    <% end %>
+    <p>
+        <%= submit_tag 'Update' %>
+    </p>
+<% end %>

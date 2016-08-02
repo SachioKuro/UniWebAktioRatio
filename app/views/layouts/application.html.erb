@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AktioRatio</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'https://www.google.com/jsapi' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav>
+    <ul>
+        <li>
+            <a href="/user_stocks">Your Stocks <span class="carret"></span></a>
+            <div>
+                <ul>
+                    <li><a href="/user_stocks/new">Add to Portfolio</a></li>
+                    <li><a href="/user">Options</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/users/new">Register</a></li>
+    </ul>
+</nav>
+
+
+<main>
+    <%= yield %>
+</main>
+
+<footer>
+    <% if current_user %>
+        Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
+    <% else %>
+        <%= link_to 'Login', '/login' %>
+    <% end %></footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shortName: MyString
+  value: 9.99
+  t: MyString
+
+two:
+  shortName: MyString
+  value: 9.99
+  t: MyString

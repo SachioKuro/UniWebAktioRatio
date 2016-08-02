@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  shortName: MyString
+  bLimit: 9.99
+  tLimit: 9.99
+  bActive: false
+  tActive: false
+
+two:
+  username: MyString
+  shortName: MyString
+  bLimit: 9.99
+  tLimit: 9.99
+  bActive: false
+  tActive: false

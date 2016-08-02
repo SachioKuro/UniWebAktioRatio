@@ -1,0 +1,15 @@
+<%= form_for :user do %>
+    <p>
+        Change E-Mail <br />
+        <%= email_field_tag :email %>
+    </p>
+    <p>
+        <label>
+            E-Mail - Notification
+        </label>
+        <%= check_box_tag :notification, true, @is_notif %>
+    </p>
+    <p>
+        <%= submit_tag 'Update' %>
+    </p>
+<% end %>

@@ -1,0 +1,9 @@
+<%= form_for @user_stock, url: '/user_stocks/add' do |f| %>
+    <p>
+        <%= f.collection_select :shortName, @stocks_not_in_portfolio,
+            :shortName, :shortName,
+            {include_blank: 'None'} %> or
+        <%= text_field_tag "search" %> <br />
+        <%= f.submit "Add to Portfolio" %>
+    </p>
+<% end %>
