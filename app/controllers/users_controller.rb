@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_filter :authorize, :except => [:create, :new]
+
     def index
         @is_notif = User.find(session[:user_id]).notification
     end
@@ -23,7 +25,6 @@ class UsersController < ApplicationController
     end
 
     def update
-        #authorize
         user = User.find(session[:user_id])
         user.update_attribute(:email, params[:email]) if params[:email] != ""
         user.update_attribute(:notification, params[:notification] == "true")
