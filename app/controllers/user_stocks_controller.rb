@@ -85,8 +85,16 @@ class UserStocksController < ApplicationController
           params[:limit] = {}
           userStocks.each do |stock|
               params[:limit_value][stock.shortName] = {}
-              params[:limit_value][stock.shortName]["min"] = stock.bLimit.to_s
-              params[:limit_value][stock.shortName]["max"] = stock.tLimit.to_s
+              params[:limit_value][stock.shortName]["min"] = if stock.bLimit.to_s != ""
+                  stock.bLimit.to_s
+              else
+                  "0.00"
+              end
+              params[:limit_value][stock.shortName]["max"] = if stock.bLimit.to_s != ""
+                  stock.tLimit.to_s
+              else
+                  "0.00"
+              end
               params[:limit][stock.shortName] = []
               params[:limit][stock.shortName].push("min") if stock.bActive
               params[:limit][stock.shortName].push("max") if stock.tActive
