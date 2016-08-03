@@ -34,6 +34,8 @@ class UserStocksController < ApplicationController
              redirect_to url_for(action: 'new') and return
           end
       end
+      @user_stock.bLimit = "0.0"
+      @user_stock.tLimit = "0.0"
       if @user_stock.save
           redirect_to '/user_stocks'
       else
