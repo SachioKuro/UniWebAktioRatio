@@ -10,7 +10,8 @@
     <% @selected_stocks.each do |stockname| %>
         <p>
             <%= stockname %><br />
-            <%= line_chart get_values(stockname) %>
+            <% vals = get_values(stockname) %>
+            <%= line_chart vals, max: vals.values.max, min: vals.values.min %>
         </p>
         <p>
             <div class="limits">
